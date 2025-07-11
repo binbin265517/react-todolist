@@ -1,70 +1,57 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 任务目标
 
-## Available Scripts
+创建一个简单的 React TodoList 应用，让用户能够添加、删除待办事项，以此来熟悉 React 的基础概念，如组件、状态管理、事件处理等。
+参考页面： http://todo.mewkes.cn/index.html
 
-In the project directory, you can run:
+## 详细任务步骤
 
-### `npm start`
+### 1. 项目初始化
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- 运用 `create-react-app` 命令创建一个新的 React 项目。
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```bash
+npx create-react-app react-todolist
+cd react-todolist
+```
 
-### `npm test`
+### 2. 构建 TodoList 组件
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- 在 `src` 目录下创建一个名为 `TodoList.jsx` 的文件。
+- 在 `TodoList.jsx` 里定义一个函数式组件，名字叫 `TodoList`。
+- 利用 `useState` Hook 对两个状态进行管理：
+  - `todos`：用于存储待办事项的数组。
+  - `inputValue`：用于存储输入框中的内容。
 
-### `npm run build`
+### 3. 编写输入框和添加按钮功能
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- 在 `TodoList` 组件的返回值里添加一个输入框和一个添加按钮。
+- 为输入框绑定 `onChange` 事件，当输入框内容改变时，更新 `inputValue` 状态。
+- 为添加按钮绑定 `onClick` 事件，点击按钮时，若输入框内容不为空，就把内容添加到 `todos` 数组中，同时清空输入框。
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 4. 实现待办事项列表的渲染
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- 遍历 `todos` 数组，把每个待办事项渲染成列表项。
+- 为每个列表项添加一个删除按钮，点击删除按钮时，从 `todos` 数组中移除对应的待办事项。
 
-### `npm run eject`
+### 5. 把 TodoList 组件集成到应用中
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- 打开 `src/App.js` 文件，引入 `TodoList` 组件。
+- 在 `App` 组件的返回值里使用 `TodoList` 组件。
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 6. 样式优化
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- 运用 CSS 或者 CSS-in-JS 方案（如 `styled-components`）为应用添加基本样式，提升用户体验。
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 任务要求
 
-## Learn More
+- 代码需符合 React 的规范和最佳实践。
+- 运用 `useState` Hook 进行状态管理。
+- 为每个功能添加合适的事件处理函数。
+- 确保输入框和按钮功能正常，能够正确添加和删除待办事项。
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 拓展任务（可选）
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- 增添标记待办事项为已完成的功能。
+- 实现待办事项的编辑功能。
+- 对应用进行持久化存储，例如使用 `localStorage` 保存待办事项。
